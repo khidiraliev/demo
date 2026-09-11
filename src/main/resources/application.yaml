@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: demo_role
+    password: '12345'
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
