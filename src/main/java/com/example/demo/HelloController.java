@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @GetMapping
-    public String hello(@RequestParam String name) {
+    public String hello(@RequestParam(defaultValue = "User") String name) {
+
         return "Hello, " + name + "!";
     }
 }
