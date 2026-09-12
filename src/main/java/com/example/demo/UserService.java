@@ -28,8 +28,10 @@ public class UserService {
         return new UserResponse(user.getId(), user.getName(), user.getRole());
     }
 
-    public User getUser(Long id) {
-        return repository.findById(id)
+    public UserResponse getUser(Long id) {
+        User user = repository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Пользователь с id %s не найден.".formatted(id)));
+
+        return new UserResponse(user.getId(), user.getName(), user.getRole());
     }
 }
