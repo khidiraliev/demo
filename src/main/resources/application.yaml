@@ -7,3 +7,7 @@ spring:
     password: '12345'
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+logging:
+  level:
+    root: INFO
+    com.example.demo: TRACE
