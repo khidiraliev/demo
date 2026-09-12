@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService service;
 
+    @GetMapping("/{id}")
+    public UserResponse getUser(@PathVariable Long id) {
+        return service.getUser(id);
+    }
+
     @PostMapping("/new")
     public UserResponse createUser(@RequestBody @NotNull @Valid UserCreatingRequest request) {
         return service.save(request);
