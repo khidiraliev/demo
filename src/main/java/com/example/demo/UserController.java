@@ -35,4 +35,10 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         service.deleteUser(id);
     }
+
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserResponse updateUser(@PathVariable Long id, @RequestBody @NotNull @Valid UserUpdateRequest request) {
+        return service.updateUser(id, request);
+    }
 }
