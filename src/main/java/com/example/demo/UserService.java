@@ -42,4 +42,22 @@ public class UserService {
     public void deleteUser(Long id) {
         repository.deleteById(id);
     }
+
+    public UserResponse updateUser(UserUpdateRequest request) {
+        String passwordHash = encoder.encode(request.password());
+
+        User user = repository.findById(request.id())
+                .orElseThrow(() ->
+                        new IllegalArgumentException("Пользователь с id %d не найден.".formatted(request.id())));
+
+        user.setName(request.name());
+        user.setPasswordHash(passwordHash);
+        user.setRole(request.role());
+
+        repository.save(user);
+
+        log.debug("Пользователь {} изменён.", user.getId());
+
+        return new UserResponse(user.getId(), user.getName(), user.getRole());
+    }
 }
