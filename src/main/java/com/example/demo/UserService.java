@@ -43,12 +43,11 @@ public class UserService {
         repository.deleteById(id);
     }
 
-    public UserResponse updateUser(UserUpdateRequest request) {
+    public UserResponse updateUser(Long id, UserUpdateRequest request) {
         String passwordHash = encoder.encode(request.password());
 
-        User user = repository.findById(request.id())
-                .orElseThrow(() ->
-                        new IllegalArgumentException("Пользователь с id %d не найден.".formatted(request.id())));
+        User user = repository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Пользователь с id %d не найден.".formatted(id)));
 
         user.setName(request.name());
         user.setPasswordHash(passwordHash);
