@@ -5,6 +5,7 @@ import com.example.demo.api.dto.UpdateUserRequest;
 import com.example.demo.api.dto.UserResponse;
 import com.example.demo.domain.Role;
 import com.example.demo.domain.entity.User;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.persistence.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,7 +43,7 @@ public class UserService {
 
     public UserResponse getUser(Long id) {
         return repository.findUserResponseById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Пользователь с id %d не найден.".formatted(id)));
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     public void deleteUser(Long id) {
@@ -53,7 +54,7 @@ public class UserService {
         String passwordHash = encoder.encode(request.password());
 
         User user = repository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Пользователь с id %d не найден.".formatted(id)));
+                .orElseThrow(() -> new UserNotFoundException(id));
 
         user.setName(request.name());
         user.setPasswordHash(passwordHash);
