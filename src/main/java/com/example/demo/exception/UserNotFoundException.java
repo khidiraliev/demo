@@ -11,7 +11,7 @@ public class UserNotFoundException extends BusinessException {
         this.id = id;
 
         super(
-                "User with id %s not found".formatted(id),
+                "User with id " + id + " not found",
                 HttpStatus.NOT_FOUND,
                 "User not found"
         );
