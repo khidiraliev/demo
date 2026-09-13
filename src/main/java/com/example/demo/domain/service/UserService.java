@@ -1,5 +1,11 @@
-package com.example.demo;
+package com.example.demo.domain.service;
 
+import com.example.demo.api.dto.CreateUserRequest;
+import com.example.demo.api.dto.UpdateUserRequest;
+import com.example.demo.api.dto.UserResponse;
+import com.example.demo.domain.Role;
+import com.example.demo.domain.entity.User;
+import com.example.demo.persistence.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.domain.entity;
 
+import com.example.demo.domain.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

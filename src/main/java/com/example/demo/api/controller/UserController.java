@@ -1,5 +1,9 @@
-package com.example.demo;
+package com.example.demo.api.controller;
 
+import com.example.demo.domain.service.UserService;
+import com.example.demo.api.dto.CreateUserRequest;
+import com.example.demo.api.dto.UpdateUserRequest;
+import com.example.demo.api.dto.UserResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
