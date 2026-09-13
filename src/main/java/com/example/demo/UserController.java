@@ -3,6 +3,7 @@ package com.example.demo;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,7 @@ public class UserController {
     }
 
     @PostMapping("/new")
+    @ResponseStatus(HttpStatus.CREATED)
     public UserResponse createUser(@RequestBody @NotNull @Valid UserCreatingRequest request) {
         return service.save(request);
     }
