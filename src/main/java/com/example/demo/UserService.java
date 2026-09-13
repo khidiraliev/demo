@@ -43,7 +43,7 @@ public class UserService {
         repository.deleteById(id);
     }
 
-    public UserResponse updateUser(Long id, UserUpdateRequest request) {
+    public UserResponse updateUser(Long id, UpdateUserRequest request) {
         String passwordHash = encoder.encode(request.password());
 
         User user = repository.findById(id)
