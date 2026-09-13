@@ -51,7 +51,8 @@ public class UserService {
 
         user.setName(request.name());
         user.setPasswordHash(passwordHash);
-        user.setRole(request.role());
+
+        user.setRole(Role.valueOf(request.role()));
 
         repository.save(user);
 

@@ -6,6 +6,6 @@ import org.hibernate.validator.constraints.Length;
 public record UpdateUserRequest(
         @NotBlank @Length(max = 48) String name,
         @NotBlank @Length(max = 24) String password,
-        @NotBlank Role role
+        @NotBlank String role
 ) {
 }
