@@ -38,4 +38,8 @@ public class UserService {
         return repository.findUserResponseById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Пользователь с id %d не найден.".formatted(id)));
     }
+
+    public void deleteUser(Long id) {
+        repository.deleteById(id);
+    }
 }
