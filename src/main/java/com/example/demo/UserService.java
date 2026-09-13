@@ -14,7 +14,7 @@ public class UserService {
     private final UserRepository repository;
     private final PasswordEncoder encoder;
 
-    public UserResponse save(UserCreatingRequest request) {
+    public UserResponse save(CreateUserRequest request) {
         String passwordHash = encoder.encode(request.password());
 
         User user = new User();

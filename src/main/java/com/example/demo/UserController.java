@@ -26,7 +26,7 @@ public class UserController {
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse createUser(@RequestBody @NotNull @Valid UserCreatingRequest request) {
+    public UserResponse createUser(@RequestBody @NotNull @Valid CreateUserRequest request) {
         return service.save(request);
     }
 
